@@ -28,3 +28,17 @@ C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCu
 C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
 C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\obj\Debug\net6.0-windows\Views\MainWindow.baml
 C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\ControlzEx.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\MahApps.Metro.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\MaterialDesignThemes.MahApps.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\Syncfusion.Licensing.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\Syncfusion.Shared.WPF.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\Syncfusion.Tools.WPF.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\CryptoCurrencyWPF.dll.config
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\obj\Debug\net6.0-windows\CryptoCurrencyWPF.csproj.GenerateResource.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\uk\CryptoCurrencyWPF.resources.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\obj\Debug\net6.0-windows\CryptoCurrencyWPF.Properties.Languages.Lang.resources
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\obj\Debug\net6.0-windows\CryptoCurrencyWPF.Properties.Languages.Lang.uk.resources
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\obj\Debug\net6.0-windows\uk\CryptoCurrencyWPF.resources.dll

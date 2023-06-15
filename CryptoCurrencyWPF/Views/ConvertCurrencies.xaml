@@ -7,7 +7,7 @@
         d:DataContext="{d:DesignInstance Type=viewmodels:ConvertCurrenciesDataManage}"
         mc:Ignorable="d"
         Title="ConvertCurrencies" Height="330" Width="450">
-    <Grid>
+    <Grid Background="#a1a3a6">
         <TextBox x:Name="TextBox1Search" HorizontalAlignment="Left" Margin="93,20,0,227" Height="24" Width="112" FontSize="18" Text="{Binding TextBox1Name,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top">
             <TextBox.InputBindings>
                 <KeyBinding Command="{Binding Path=TextBox1SearchOnUpdate}" Key="Enter" />
@@ -29,7 +29,7 @@
         </TextBox>
         <Label Content="From:" HorizontalAlignment="Left" Margin="23,18,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="To:" HorizontalAlignment="Left" Height="29" Margin="235,18,0,0" VerticalAlignment="Top" Width="35" FontSize="16"/>
-        <Button Content="Back" HorizontalAlignment="Left" Height="30" Margin="340,256,0,0" VerticalAlignment="Top" Width="84" FontSize="16" Click="Button_Click">
+        <Button Content="Back" HorizontalAlignment="Left" Height="30" Margin="340,256,0,0" VerticalAlignment="Top" Width="84" FontSize="16" Click="Button_Click" Background="#FF505152" Foreground="White">
         </Button>
         <Label Content="Quantity:" HorizontalAlignment="Left" Height="36" Margin="28,179,0,0" VerticalAlignment="Top" Width="78" FontSize="16"/>
         <TextBox x:Name="TextBoxQuantity" HorizontalAlignment="Left" Height="28" Margin="106,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontSize="16" Text="{Binding TextBox3Name,UpdateSourceTrigger=PropertyChanged}">
@@ -38,7 +38,7 @@
             </TextBox.InputBindings>
         </TextBox>
         <Label Content="=" HorizontalAlignment="Left" Margin="253,181,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="TextBlockResult" HorizontalAlignment="Left" Height="28" Margin="296,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False" FontSize="16" Text="{Binding Path=LabelResult}">
+        <TextBlock Background="#505152" x:Name="TextBlockResult" HorizontalAlignment="Left" Height="28" Margin="296,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False" FontSize="16" Text="{Binding Path=LabelResult}" Foreground="#FFFBFBFB">
         </TextBlock>
         <ListView x:Name="ViewAllRates" HorizontalAlignment="Left" Height="110" Margin="263,55,0,0" VerticalAlignment="Top" Width="150" ItemsSource="{Binding  TextBox2Rates}" SelectionMode="Single" SelectedItem="{Binding TextBox2SelectedRates}">
             <ListView.ItemTemplate>

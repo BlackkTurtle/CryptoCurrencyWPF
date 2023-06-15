@@ -6,37 +6,38 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:CryptoCurrencyWPF" xmlns:viewmodels="clr-namespace:CryptoCurrencyWPF.ViewModels" xmlns:Interactivity="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic.Core" xmlns:Interactivity1="http://schemas.microsoft.com/netfx/2009/xaml/presentation" d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowDataManage}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920"
+        xmlns:language="clr-namespace:CryptoCurrencyWPF.Properties.Languages"
+        Title="{x:Static language:Lang.mainWindow}" Height="1080" Width="1920"
         WindowState="Maximized">
-    <Grid Margin="0,0,0,-6" Width="1920" Height="1080">
+    <Grid Margin="0,0,0,-6" Width="1920" Height="1080" Background="#b0b3b8">
         <TextBlock x:Name="TextBlock" HorizontalAlignment="Left" Margin="1437,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="116" Width="128"/>
-        <Grid HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="366">
-            <Label Content="Home" Margin="0,56,0,0" VerticalAlignment="Top" FontSize="48" HorizontalAlignment="Center" Width="168" Height="74"/>
-            <Button x:Name="ButtonConvertCurrencies" Content="Convert Currency" HorizontalAlignment="Center" Height="44" Margin="0,187,0,0" VerticalAlignment="Top" Width="366" FontSize="18" Command="{Binding OpenConvertCurrenciesWnd}"/>
+        <Grid HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="366" Background="#323233">
+            <Label Content="Home" Margin="0,56,0,0" VerticalAlignment="Top" FontSize="48" HorizontalAlignment="Center" Width="168" Height="74" Foreground="#FFB94747"/>
+            <Button x:Name="ButtonConvertCurrencies" Content="Convert Currency" HorizontalAlignment="Center" Height="44" Margin="0,187,0,0" VerticalAlignment="Top" Width="346" FontSize="18" Command="{Binding OpenConvertCurrenciesWnd}" />
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="70" Margin="366,0,0,0" VerticalAlignment="Top" Width="1549">
-            <TextBox x:Name="TextBoxSearch" HorizontalAlignment="Left" Margin="62,17,0,18" TextWrapping="Wrap" Width="194" FontSize="20" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}">
-                <TextBox.InputBindings>
-                    <KeyBinding Command="{Binding Path=TextBoxSearchOnUpdate}" Key="Enter" />
-                </TextBox.InputBindings>
-            </TextBox>
-            <Button x:Name="ButtonSettings" Content="Settings" HorizontalAlignment="Left" Height="26" Margin="1450,0,0,0" VerticalAlignment="Center" Width="76" FontSize="16" Command="{Binding OpenSettingssWnd}"/>
-        </Grid>
-        <ListView x:Name="ViewAllAssets" HorizontalAlignment="Left" Height="1000" Margin="366,70,0,0" VerticalAlignment="Top" Width="1554" ItemsSource="{Binding AllAssets}" SelectionMode="Single" SelectedItem="{Binding SelectedAssets}" MouseDoubleClick="ViewAllAssets_MouseDoubleClick">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel Height="50">
-                        <TextBlock Text="Name:  "/>
-                        <TextBlock Text="{Binding Path=name}"/>
-                        <TextBlock Text="    Rank:  "/>
-                        <TextBlock Text="{Binding Path=rank}"/>
-                        <TextBlock Text="    Symbol:  "/>
-                        <TextBlock Text="{Binding Path=symbol}"/>
-                        <TextBlock Text="    Price USD:  "/>
-                        <TextBlock Text="{Binding Path=priceUsd}"/>
-                    </WrapPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+        <Border Margin="386,10,10,1000" Background="#323233" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="15,15,15,15">
+            <Grid HorizontalAlignment="Center" Height="81" Margin="0,-1,0,0" VerticalAlignment="Top" Width="1524" >
+                <TextBox x:Name="TextBoxSearch" HorizontalAlignment="Left" Margin="55,13,0,22" TextWrapping="Wrap" Width="194" FontSize="20" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding Path=TextBoxSearchOnUpdate}" Key="Enter" />
+                    </TextBox.InputBindings>
+                </TextBox>
+                <Button x:Name="ButtonSettings" Content="Settings" HorizontalAlignment="Left" Height="26" Margin="1422,21,0,0" VerticalAlignment="Top" Width="76" FontSize="16" Command="{Binding OpenSettingssWnd}" BorderBrush="WhiteSmoke" Background="#FF888888"/>
+            </Grid>
+        </Border>
+        <ListView FontSize="25" Background="#b0b3b8" x:Name="ViewAllAssets" HorizontalAlignment="Left" Height="972" Margin="366,98,0,0" VerticalAlignment="Top" Width="1554" ItemsSource="{Binding AllAssets}" SelectionMode="Single" SelectedItem="{Binding SelectedAssets}" MouseDoubleClick="ViewAllAssets_MouseDoubleClick" Foreground="Black">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="380" Header="Name:"                                            
+                                            DisplayMemberBinding="{Binding Path=name}"/>
+                    <GridViewColumn Width="380" Header="Rank:"                                            
+                                            DisplayMemberBinding="{Binding Path=rank}"/>
+                    <GridViewColumn Width="380" Header="Symbol:"                                            
+                                            DisplayMemberBinding="{Binding Path=symbol}"/>
+                    <GridViewColumn Width="380" Header="Price USD:"                                            
+                                            DisplayMemberBinding="{Binding Path=priceUsd}"/>
+                </GridView>
+            </ListView.View>
         </ListView>
     </Grid>
 </Window>

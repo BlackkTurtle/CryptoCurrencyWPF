@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CryptoCurrencyWPF.ViewModels;
 
 namespace CryptoCurrencyWPF.Views
 {
@@ -22,6 +23,12 @@ namespace CryptoCurrencyWPF.Views
         public Settings()
         {
             InitializeComponent();
+            DataContext = new SettingsDataManage();
+        }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

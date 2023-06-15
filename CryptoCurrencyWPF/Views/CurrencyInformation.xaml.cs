@@ -21,10 +21,12 @@ namespace CryptoCurrencyWPF.Views
     /// </summary>
     public partial class CurrencyInformation : Window
     {
+        public static ListView AllAssetsView;
         public CurrencyInformation(Assets assets)
         {
             InitializeComponent();
             DataContext = new CurrencyInformationDataManage(assets);
+            AllAssetsView = ViewAllAssets;
         }
 
 
