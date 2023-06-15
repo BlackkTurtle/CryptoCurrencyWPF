@@ -61,7 +61,7 @@ namespace CryptoCurrencyWPF.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CryptoCurrencyWPF;component/views/settings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CryptoCurrencyWPF;V1.0.0.0;component/views/settings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Settings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

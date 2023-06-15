@@ -11,10 +11,41 @@ using CryptoCurrencyWPF.Views;
 
 namespace CryptoCurrencyWPF.ViewModels
 {
-    public class MainWindowDataManage:INotifyPropertyChanged
+    public class MainWindowDataManage : INotifyPropertyChanged
     {
-        private Task<List<Assets>> allAssets = CryptoCurrencyAPI.GetAssetsAsync();
-        public Task<List<Assets>> AllAssets
+        #region Main Window Data Manage
+        #region TextBoxSearch
+        private void TextBoxSearchOnUpdateMethod()
+        {
+            AllAssets = CryptoCurrencyAPI.GetTop10Assets(Name);
+        }
+        private RelayCommand? textBoxSearchOnUpdate;
+        public RelayCommand TextBoxSearchOnUpdate
+        {
+            get
+            {
+                return textBoxSearchOnUpdate ?? new RelayCommand(obj =>
+                {
+                    TextBoxSearchOnUpdateMethod();
+                }
+                );
+            }
+        }
+
+        private string name = "";
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                NotifyPropertyChanged("Name");
+            }
+        }
+        #endregion
+
+        private List<Assets> allAssets = CryptoCurrencyAPI.GetTop10Assets("");
+        public List<Assets> AllAssets
         {
             get { return allAssets; }
             set
@@ -23,46 +54,6 @@ namespace CryptoCurrencyWPF.ViewModels
                 NotifyPropertyChanged("AllAssets");
             }
         }
-        private Task<List<Assets>> allRates = CryptoCurrencyAPI.GetAssetsAsync();
-        public Task<List<Assets>> AllRates
-        {
-            get { return allRates; }
-            set
-            {
-                allRates = value;
-                NotifyPropertyChanged("AllRates");
-            }
-        }/*
-        private Task<List<Assets>> allExchanges = CryptoCurrencyAPI.GetAssetsAsync();
-        public Task<List<Assets>> AllExchanges
-        {
-            get { return allExchanges; }
-            set
-            {
-                allExchanges = value;
-                NotifyPropertyChanged("AllExchanges");
-            }
-        }
-        private Task<List<Assets>> allMarkets = CryptoCurrencyAPI.GetAssetsAsync();
-        public Task<List<Assets>> AllMarkets
-        {
-            get { return allMarkets; }
-            set
-            {
-                allMarkets = value;
-                NotifyPropertyChanged("AllMarkets");
-            }
-        }
-        private Task<List<Assets>> allCandles = CryptoCurrencyAPI.GetAssetsAsync();
-        public Task<List<Assets>> AllCandles
-        {
-            get { return allCandles; }
-            set
-            {
-                allCandles = value;
-                NotifyPropertyChanged("AllCandles");
-            }
-        }*/
 
         public event PropertyChangedEventHandler? PropertyChanged;
         private void NotifyPropertyChanged(string propertyname)
@@ -72,13 +63,40 @@ namespace CryptoCurrencyWPF.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
+
+        public static Assets? SelectedAssets { get; set; }
+
+        #region Other Windows Opening
+
+        public static void OpenCurrencyInformationWindow()
+        {
+            CurrencyInformation currencyInformation = new CurrencyInformation(SelectedAssets);
+            currencyInformation.Owner = Application.Current.MainWindow;
+            currencyInformation.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            currencyInformation.ShowDialog();
+        }
+
+        private RelayCommand? openCurrencyInformationWnd;
+        public RelayCommand OpenCurrencyInformationWnd
+        {
+            get
+            {
+                return openCurrencyInformationWnd ?? new RelayCommand(obj =>
+                {
+                    OpenCurrencyInformationWindow();
+                }
+                );
+            }
+        }
+
         private void OpenConvertCurrenciesWindow()
         {
             ConvertCurrencies convertCurrencies = new ConvertCurrencies();
-            convertCurrencies.Owner=Application.Current.MainWindow;
+            convertCurrencies.Owner = Application.Current.MainWindow;
             convertCurrencies.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             convertCurrencies.ShowDialog();
         }
+
         private RelayCommand? openConvertCurrenciesWnd;
         public RelayCommand OpenConvertCurrenciesWnd
         {
@@ -91,5 +109,26 @@ namespace CryptoCurrencyWPF.ViewModels
                 );
             }
         }
-    }
+        private void OpenSettingsWindow()
+        {
+            Settings settings = new Settings();
+            settings.Owner = Application.Current.MainWindow;
+            settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            settings.ShowDialog();
+        }
+        private RelayCommand? openSettingsWnd;
+        public RelayCommand OpenSettingssWnd
+        {
+            get
+            {
+                return openSettingsWnd ?? new RelayCommand(obj =>
+                {
+                    OpenSettingsWindow();
+                }
+                );
+            }
+        }
+        #endregion
+        #endregion
+    } 
 }

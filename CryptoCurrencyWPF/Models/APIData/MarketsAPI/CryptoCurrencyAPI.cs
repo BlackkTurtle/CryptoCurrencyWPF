@@ -12,13 +12,13 @@ namespace CryptoCurrencyWPF.ViewModels.APIData
 {
     public partial class CryptoCurrencyAPI
     {
-        public static async Task<List<Markets>> GetMarketsAsync()
+        public static List<Markets> GetMarketsAsync()
         {
             var assets = new MarketsResponse();
-            HttpResponseMessage response = await HttpClient.GetAsync("https://api.coincap.io/v2/markets");
+            HttpResponseMessage response = HttpClient.GetAsync("https://api.coincap.io/v2/markets").Result;
             if (response.IsSuccessStatusCode)
             {
-                string result = await response.Content.ReadAsStringAsync();
+                string result = response.Content.ReadAsStringAsync().Result;
                 assets = JsonConvert.DeserializeObject<MarketsResponse>(result);
                 return assets.Data;
             }

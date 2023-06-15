@@ -3,29 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CryptoCurrencyWPF" xmlns:viewmodels="clr-namespace:CryptoCurrencyWPF.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowDataManage}"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:CryptoCurrencyWPF" xmlns:viewmodels="clr-namespace:CryptoCurrencyWPF.ViewModels" xmlns:Interactivity="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic.Core" xmlns:Interactivity1="http://schemas.microsoft.com/netfx/2009/xaml/presentation" d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowDataManage}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920">
+        Title="MainWindow" Height="1080" Width="1920"
+        WindowState="Maximized">
     <Grid Margin="0,0,0,-6" Width="1920" Height="1080">
-        <Button x:Name="GetDataButton" Content="GetData" HorizontalAlignment="Left" Margin="1352,427,0,0" VerticalAlignment="Top" Height="31" Width="56" Click="Button_Click"/>
         <TextBlock x:Name="TextBlock" HorizontalAlignment="Left" Margin="1437,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="116" Width="128"/>
         <Grid HorizontalAlignment="Left" Height="1070" VerticalAlignment="Top" Width="366">
             <Label Content="Home" Margin="0,56,0,0" VerticalAlignment="Top" FontSize="48" HorizontalAlignment="Center" Width="168" Height="74"/>
             <Button x:Name="ButtonConvertCurrencies" Content="Convert Currency" HorizontalAlignment="Center" Height="44" Margin="0,187,0,0" VerticalAlignment="Top" Width="366" FontSize="18" Command="{Binding OpenConvertCurrenciesWnd}"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="70" Margin="366,0,0,0" VerticalAlignment="Top" Width="1549">
-            <TextBox x:Name="TextBoxSearch" HorizontalAlignment="Left" Margin="62,17,0,18" TextWrapping="Wrap" Width="194" FontSize="20"/>
-            <Label x:Name="LabelSettings" Content="Settings" HorizontalAlignment="Left" Margin="1466,0,0,0" VerticalAlignment="Center" FontSize="16" Height="36" Width="73"/>
+            <TextBox x:Name="TextBoxSearch" HorizontalAlignment="Left" Margin="62,17,0,18" TextWrapping="Wrap" Width="194" FontSize="20" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding Path=TextBoxSearchOnUpdate}" Key="Enter" />
+                </TextBox.InputBindings>
+            </TextBox>
+            <Button x:Name="ButtonSettings" Content="Settings" HorizontalAlignment="Left" Height="26" Margin="1450,0,0,0" VerticalAlignment="Center" Width="76" FontSize="16" Command="{Binding OpenSettingssWnd}"/>
         </Grid>
-        <ListView x:Name="ViewAllAssets" HorizontalAlignment="Left" Height="318" Margin="366,70,0,0" VerticalAlignment="Top" Width="898" ItemsSource="{Binding AllAssets}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=id}"/>
-                </GridView>
-            </ListView.View>
+        <ListView x:Name="ViewAllAssets" HorizontalAlignment="Left" Height="1000" Margin="366,70,0,0" VerticalAlignment="Top" Width="1554" ItemsSource="{Binding AllAssets}" SelectionMode="Single" SelectedItem="{Binding SelectedAssets}" MouseDoubleClick="ViewAllAssets_MouseDoubleClick">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel Height="50">
+                        <TextBlock Text="Name:  "/>
+                        <TextBlock Text="{Binding Path=name}"/>
+                        <TextBlock Text="    Rank:  "/>
+                        <TextBlock Text="{Binding Path=rank}"/>
+                        <TextBlock Text="    Symbol:  "/>
+                        <TextBlock Text="{Binding Path=symbol}"/>
+                        <TextBlock Text="    Price USD:  "/>
+                        <TextBlock Text="{Binding Path=priceUsd}"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
-
-
-
     </Grid>
 </Window>

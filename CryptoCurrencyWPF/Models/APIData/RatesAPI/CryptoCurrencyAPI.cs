@@ -12,26 +12,26 @@ namespace CryptoCurrencyWPF.ViewModels.APIData
 {
     public partial class CryptoCurrencyAPI
     {
-        public static async Task<List<Rates>> GetRatesAsync()
+        public static List<Rates> GetTop10RatesAsync(string name)
         {
             var assets = new RatesResponse();
-            HttpResponseMessage response = await HttpClient.GetAsync("https://api.coincap.io/v2/rates");
+            HttpResponseMessage response = HttpClient.GetAsync("https://api.coincap.io/v2/rates").Result;
             if (response.IsSuccessStatusCode)
             {
-                string result = await response.Content.ReadAsStringAsync();
+                string result = response.Content.ReadAsStringAsync().Result;
                 assets = JsonConvert.DeserializeObject<RatesResponse>(result);
-                return assets.Data;
+                return assets.Data.Where(a=>a.id.Contains(name)).Take(10).ToList();
             }
             throw new ArgumentException("Error");
         }
-        public static async Task<Rates> GetRatesByIdAsync(string id)
+        public static Rates GetRatesByIdAsync(string id)
         {
             var assets = new Rates();
             string path = "https://api.coincap.io/v2/rates/" + id;
-            HttpResponseMessage response = await HttpClient.GetAsync(path);
+            HttpResponseMessage response = HttpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
-                string result = await response.Content.ReadAsStringAsync();
+                string result = response.Content.ReadAsStringAsync().Result;
                 assets = JsonConvert.DeserializeObject<Rates>(result);
                 return assets;
             }

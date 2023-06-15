@@ -12,26 +12,26 @@ namespace CryptoCurrencyWPF.ViewModels.APIData
 {
     public partial class CryptoCurrencyAPI
     {
-        public static async Task<List<Exchanges>> GetExchangesAsync()
+        public static List<Exchanges> GetExchangesAsync()
         {
             var assets = new ExchangesResponse();
-            HttpResponseMessage response = await HttpClient.GetAsync("https://api.coincap.io/v2/exchanges");
+            HttpResponseMessage response = HttpClient.GetAsync("https://api.coincap.io/v2/exchanges").Result;
             if (response.IsSuccessStatusCode)
             {
-                string result = await response.Content.ReadAsStringAsync();
+                string result = response.Content.ReadAsStringAsync().Result;
                 assets = JsonConvert.DeserializeObject<ExchangesResponse>(result);
                 return assets.Data;
             }
             throw new ArgumentException("Error");
         }
-        public static async Task<Exchanges> GetExchangeByIdAsync(string id)
+        public static Exchanges GetExchangeByIdAsync(string id)
         {
             var assets = new Exchanges();
             string path = "https://api.coincap.io/v2/exchanges/" + id;
-            HttpResponseMessage response = await HttpClient.GetAsync(path);
+            HttpResponseMessage response = HttpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
-                string result = await response.Content.ReadAsStringAsync();
+                string result = response.Content.ReadAsStringAsync().Result;
                 assets = JsonConvert.DeserializeObject<Exchanges>(result);
                 return assets;
             }

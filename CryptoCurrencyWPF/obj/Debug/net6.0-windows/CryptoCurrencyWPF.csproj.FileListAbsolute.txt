@@ -27,3 +27,4 @@ C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCu
 C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\obj\Debug\net6.0-windows\Views\Settings.baml
 C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
 C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\obj\Debug\net6.0-windows\Views\MainWindow.baml
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\CryptoCurrencyWPF\CryptoCurrencyWPF\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll

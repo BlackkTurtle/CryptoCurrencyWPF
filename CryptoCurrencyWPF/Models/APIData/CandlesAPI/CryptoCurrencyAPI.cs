@@ -12,14 +12,14 @@ namespace CryptoCurrencyWPF.ViewModels.APIData
 {
     public partial class CryptoCurrencyAPI
     {
-        public static async Task<List<Candles>> GetCandlesAsync(string exchange,string interval,string baseid,string quoteid)
+        public static List<Candles> GetCandlesAsync(string exchange,string interval,string baseid,string quoteid)
         {
             var assets = new CandlesResponse();
             string path = $"https://api.coincap.io/v2/candles?exchange={exchange}&interval={interval}&baseId={baseid}&quoteId={quoteid}";
-            HttpResponseMessage response = await HttpClient.GetAsync(path);
+            HttpResponseMessage response = HttpClient.GetAsync(path).Result;
             if (response.IsSuccessStatusCode)
             {
-                string result = await response.Content.ReadAsStringAsync();
+                string result = response.Content.ReadAsStringAsync().Result;
                 assets = JsonConvert.DeserializeObject<CandlesResponse>(result);
                 return assets.Data;
             }

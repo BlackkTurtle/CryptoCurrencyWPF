@@ -29,19 +29,18 @@ namespace CryptoCurrencyWPF.Views
     public partial class MainWindow : Window
     {
         public static ListView AllAssetsView;
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainWindowDataManage();
             AllAssetsView = ViewAllAssets;
+            
         }
-        private async void Button_Click(object sender, RoutedEventArgs e)
+
+        private void ViewAllAssets_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var assets = await CryptoCurrencyAPI.GetAssetsAsync();
-            foreach(var asset in assets)
-            {
-                TextBlock.Text += asset.ToString();
-            }
+            MainWindowDataManage.OpenCurrencyInformationWindow();
         }
     }
 }

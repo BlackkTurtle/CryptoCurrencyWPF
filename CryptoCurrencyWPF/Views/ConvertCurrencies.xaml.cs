@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CryptoCurrencyWPF.ViewModels;
 
 namespace CryptoCurrencyWPF.Views
 {
@@ -19,9 +20,20 @@ namespace CryptoCurrencyWPF.Views
     /// </summary>
     public partial class ConvertCurrencies : Window
     {
+        public static ListView AllAssetsView;
+        public static ListView AllRatesView;
+
         public ConvertCurrencies()
         {
             InitializeComponent();
+            DataContext = new ConvertCurrenciesDataManage();
+            AllAssetsView = ViewAllAssets;
+            AllRatesView = ViewAllRates;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

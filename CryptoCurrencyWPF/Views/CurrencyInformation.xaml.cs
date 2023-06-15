@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CryptoCurrencyWPF.Models;
+using CryptoCurrencyWPF.ViewModels;
 
 namespace CryptoCurrencyWPF.Views
 {
@@ -19,9 +21,16 @@ namespace CryptoCurrencyWPF.Views
     /// </summary>
     public partial class CurrencyInformation : Window
     {
-        public CurrencyInformation()
+        public CurrencyInformation(Assets assets)
         {
             InitializeComponent();
+            DataContext = new CurrencyInformationDataManage(assets);
+        }
+
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
